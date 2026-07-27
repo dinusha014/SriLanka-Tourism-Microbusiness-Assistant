@@ -1,202 +1,200 @@
 # 🇱🇰 Sri Lanka Tourism Micro-Business Assistant
 
-An Agentic AI web application built using LangGraph, Retrieval-Augmented Generation (RAG), FAISS, Streamlit, OpenRouter and Groq.
+An Agentic AI web application built using **LangGraph**, **Retrieval-Augmented Generation (RAG)**, **FAISS**, **Streamlit**, **Groq**, and **OpenRouter** to help tourists plan their trips across Sri Lanka.
 
 ---
 
-## Project Overview
+# 📖 Project Overview
 
-Sri Lanka Tourism Micro-Business Assistant is an AI-powered tourism assistant built using LangGraph and Retrieval-Augmented Generation (RAG). The application helps tourists plan trips, estimate budgets, discover attractions, and receive context-aware answers from a tourism knowledge base created from Sri Lankan tourism documents.
+Sri Lanka Tourism Micro-Business Assistant is an AI-powered tourism assistant designed to support travellers by providing intelligent, context-aware travel recommendations.
 
-### Key Features
-
-- AI-powered tourism question answering
-- Personalised trip planning
-- Hotel recommendations
-- Budget estimation
-- Retrieval-Augmented Generation (RAG)
-- LangGraph multi-agent workflow
-- Streamlit web interface
-
-## Features
-
-- AI Tourism Assistant
-- Trip Planner Agent
-- Booking Assistant Agent
-- Budget Advisor Agent
-- RAG Knowledge Base
-- LangGraph Multi-Agent Workflow
-- Streamlit Chat Interface
+The application uses **Retrieval-Augmented Generation (RAG)** to retrieve information from a knowledge base built using Sri Lankan tourism documents. Multiple AI agents cooperate through **LangGraph** to answer tourism questions, create travel itineraries, estimate budgets, and recommend accommodation.
 
 ---
 
-## Technologies
+# ✨ Features
+
+- 🇱🇰 AI Tourism Question Answering
+- 🗺️ Smart Trip Planner
+- 🏨 Hotel & Accommodation Recommendations
+- 💰 Budget Estimation
+- 🚗 Transport Suggestions
+- 📚 Retrieval-Augmented Generation (RAG)
+- 🤖 LangGraph Multi-Agent Workflow
+- 💬 Streamlit Chat Interface
+
+---
+
+# 🧠 AI Agents
+
+## RAG Agent
+Retrieves tourism information from the FAISS knowledge base and answers user questions.
+
+## Planner Agent
+Generates personalised day-by-day travel itineraries.
+
+## Booking Agent
+Provides accommodation, transport, and booking recommendations.
+
+## Budget Agent
+Estimates travel expenses based on the user's requirements.
+
+---
+
+# ⚙️ Technology Stack
 
 - Python
+- Streamlit
 - LangGraph
 - LangChain
 - FAISS
-- Streamlit
 - Groq
 - OpenRouter
 - HuggingFace Embeddings
 
 ---
 
-## Folder Structure
+# 📂 Project Structure
 
-```
+```text
 project/
 
-│
-
 ├── agents/
-
+│   ├── rag_agent.py
+│   ├── planner_agent.py
+│   ├── booking_agent.py
+│   ├── budget_agent.py
+│   └── graph.py
+│
 ├── utils/
-
+│
 ├── data/
-
-│ └── pdfs/
-
+│   └── pdfs/
+│
+├── images/
+│
 ├── vectorstore/
-
+│
+├── diagrams/
+│
 ├── app.py
-
 ├── build_vectorstore.py
-
 ├── requirements.txt
-
 ├── README.md
-
 └── .env.example
 ```
 
 ---
 
-## AI Agents
+# 🔄 RAG Workflow
 
-### RAG Agent
-
-Answers tourism questions using the knowledge base.
-
-### Planner Agent
-
-Creates travel itineraries.
-
-### Booking Agent
-
-Provides hotel and transport recommendations.
-
-### Budget Agent
-
-Estimates travel costs.
-
----
-
-## RAG Workflow
-
+```
 PDF Documents
-
-↓
-
+      │
+      ▼
 Text Chunking
-
-↓
-
+      │
+      ▼
 Embeddings
-
-↓
-
+      │
+      ▼
 FAISS Vector Database
-
-↓
-
+      │
+      ▼
 Retriever
-
-↓
-
-LLM
-
-↓
-
+      │
+      ▼
+Large Language Model
+      │
+      ▼
 Answer
+```
 
 ---
 
-## LangGraph Workflow
+# 🤖 LangGraph Workflow
 
-User
-
-↓
-
+```
+User Query
+      │
+      ▼
 Supervisor
-
-↓
-
-RAG
-
-↓
-
-Planner
-
-↓
-
-Booking
-
-↓
-
-Budget
-
-↓
-
-Final Response
+      │
+      ▼
+RAG Agent
+      │
+      ▼
+Planner Agent
+      │
+      ▼
+Booking Agent
+      │
+      ▼
+Budget Agent
+      │
+      ▼
+Final AI Response
+```
 
 ---
 
+# 🏗️ Building the Vector Database
 
-## Building the Vector Database
-
-Run the following command to create the FAISS vector database.
+Create the FAISS vector database using:
 
 ```bash
 python build_vectorstore.py
 ```
 
-This command loads all tourism documents,
-creates embeddings,
-and stores them in the local vector database.
+This command:
 
-## Installation
+- Loads tourism PDF documents
+- Splits documents into chunks
+- Creates embeddings
+- Builds the FAISS vector database
 
-Install dependencies
+---
 
+# 🚀 Installation
+
+## 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/SriLanka-Tourism-Microbusiness-Assistant.git
 ```
+
+## 2. Install dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-Build Vector Database
+## 3. Configure environment variables
 
-```
+Create a `.env` file based on `.env.example`.
+
+## 4. Build the vector database
+
+```bash
 python build_vectorstore.py
 ```
 
-Run Application
+## 5. Run the application
 
-```
+```bash
 streamlit run app.py
 ```
 
 ---
 
-## Models
+# 🧩 AI Models
 
-Groq
-
-OpenRouter
+- Groq
+- OpenRouter
 
 ---
 
-## Diagrams 
+# 🖼️ Diagrams
 
 ## System Architecture
 
@@ -214,10 +212,57 @@ OpenRouter
 
 ![RAG Workflow](diagrams/rag_workflow.png)
 
-## Author
+---
 
-Chamod Dinusha
+# 🎨 Project Branding
 
-BSc Information Technology
+The application includes custom tourism branding assets to create an engaging user experience.
+
+### Branding Assets
+
+- 🇱🇰 Application Logo
+- 🌅 Hero Banner
+- 🏛️ Sigiriya
+- 🌿 Ella
+- 🐋 Mirissa
+- 🐘 Yala National Park
+
+These images enhance the application's tourism-focused interface.
+
+---
+
+# 📈 Future Improvements
+
+- 🌤️ Weather Forecast Integration
+- 🗺️ Google Maps Integration
+- ✈️ Flight Booking APIs
+- 🏨 Live Hotel Booking APIs
+- 🎤 Voice Assistant
+- 🌐 Sinhala & Tamil Language Support
+- 📱 Mobile Responsive Improvements
+
+---
+
+# 👨‍💻 Author
+
+**Chamod Dinusha**
+
+BSc (Hons) Information Technology
 
 Horizon Campus
+
+---
+
+# 🤝 Contributors
+
+- Chamod Dinusha
+
+---
+
+# 📄 License
+
+This project was developed for **academic purposes** as part of a university assignment.
+
+---
+
+## ⭐ If you found this project useful, consider giving it a star!
