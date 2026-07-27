@@ -214,6 +214,20 @@ OpenRouter
 
 ![RAG Workflow](diagrams/rag_workflow.png)
 
+
+## Project Branding
+
+The application includes custom tourism branding assets:
+
+- Application Logo
+- Hero Banner
+- Sigiriya
+- Ella
+- Mirissa
+- Yala National Park
+
+These assets improve the visual experience of the application and provide a tourism-focused user interface.
+
 ## Author
 
 Chamod Dinusha
