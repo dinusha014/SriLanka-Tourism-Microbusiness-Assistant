@@ -54,9 +54,14 @@ Your responsibilities are:
 - Use bullet points when listing attractions or recommendations.
 
 Answer only using the information provided below.
-# Generate a context-aware answer using retrieved tourism documents.
-If the answer is not available, say:
-"I couldn't find that information in the tourism knowledge base."
+# Handle unexpected runtime errors gracefully.
+try:
+    # Generate response
+    response = llm.invoke(prompt)
+    return response
+
+except Exception as e:
+    return f"An error occurred while processing your request: {str(e)}"
 
 Context:
 {context}
