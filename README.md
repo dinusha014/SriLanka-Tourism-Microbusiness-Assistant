@@ -4,6 +4,20 @@ An Agentic AI web application built using LangGraph, Retrieval-Augmented Generat
 
 ---
 
+## Project Overview
+
+Sri Lanka Tourism Micro-Business Assistant is an AI-powered tourism assistant built using LangGraph and Retrieval-Augmented Generation (RAG). The application helps tourists plan trips, estimate budgets, discover attractions, and receive context-aware answers from a tourism knowledge base created from Sri Lankan tourism documents.
+
+### Key Features
+
+- AI-powered tourism question answering
+- Personalised trip planning
+- Hotel recommendations
+- Budget estimation
+- Retrieval-Augmented Generation (RAG)
+- LangGraph multi-agent workflow
+- Streamlit web interface
+
 ## Features
 
 - AI Tourism Assistant
@@ -138,6 +152,19 @@ Budget
 Final Response
 
 ---
+
+
+## Building the Vector Database
+
+Run the following command to create the FAISS vector database.
+
+```bash
+python build_vectorstore.py
+```
+
+This command loads all tourism documents,
+creates embeddings,
+and stores them in the local vector database.
 
 ## Installation
 
