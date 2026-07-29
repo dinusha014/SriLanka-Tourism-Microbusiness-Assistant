@@ -1,185 +1,71 @@
 # 🇱🇰 Sri Lanka Tourism Micro-Business Assistant
 
-An Agentic AI web application built using **LangGraph**, **Retrieval-Augmented Generation (RAG)**, **FAISS**, **Streamlit**, **Groq**, and **OpenRouter** to help tourists plan their trips across Sri Lanka.
+## 📖 Project Description
+
+Sri Lanka Tourism Micro-Business Assistant is an AI-powered web application developed to help tourists plan their trips across Sri Lanka. The system uses a multi-agent architecture built with **LangGraph** and **Retrieval-Augmented Generation (RAG)** to answer tourism-related questions, generate travel itineraries, provide accommodation suggestions, and estimate travel budgets.
+
+The application retrieves relevant information from a FAISS vector database created from Sri Lankan tourism documents and generates accurate responses using Large Language Models.
 
 ---
 
-# 📖 Project Overview
+# 🏗️ Architecture Diagram
 
-Sri Lanka Tourism Micro-Business Assistant is an AI-powered tourism assistant designed to support travellers by providing intelligent, context-aware travel recommendations.
+![System Architecture](diagrams/architecture.png)
 
-The application uses **Retrieval-Augmented Generation (RAG)** to retrieve information from a knowledge base built using Sri Lankan tourism documents. Multiple AI agents cooperate through **LangGraph** to answer tourism questions, create travel itineraries, estimate budgets, and recommend accommodation.
+### Architecture Overview
 
----
+The system consists of the following components:
 
-# ✨ Features
+- Streamlit User Interface
+- LangGraph Supervisor
+- RAG Agent
+- Planner Agent
+- Booking Agent
+- Budget Agent
+- FAISS Vector Database
+- HuggingFace Embedding Model
+- Groq & OpenRouter Language Models
 
-- 🇱🇰 AI Tourism Question Answering
-- 🗺️ Smart Trip Planner
-- 🏨 Hotel & Accommodation Recommendations
-- 💰 Budget Estimation
-- 🚗 Transport Suggestions
-- 📚 Retrieval-Augmented Generation (RAG)
-- 🤖 LangGraph Multi-Agent Workflow
-- 💬 Streamlit Chat Interface
-
----
-
-# 🧠 AI Agents
-
-## RAG Agent
-Retrieves tourism information from the FAISS knowledge base and answers user questions.
-
-## Planner Agent
-Generates personalised day-by-day travel itineraries.
-
-## Booking Agent
-Provides accommodation, transport, and booking recommendations.
-
-## Budget Agent
-Estimates travel expenses based on the user's requirements.
+The Streamlit application receives user requests, the LangGraph supervisor routes them to the appropriate AI agents, and the responses are generated using the tourism knowledge base.
 
 ---
 
-# ⚙️ Technology Stack
-
-- Python
-- Streamlit
-- LangGraph
-- LangChain
-- FAISS
-- Groq
-- OpenRouter
-- HuggingFace Embeddings
-
----
-
-# 📂 Project Structure
-
-```text
-project/
-
-├── agents/
-│   ├── rag_agent.py
-│   ├── planner_agent.py
-│   ├── booking_agent.py
-│   ├── budget_agent.py
-│   └── graph.py
-│
-├── utils/
-│
-├── data/
-│   └── pdfs/
-│
-├── images/
-│
-├── vectorstore/
-│
-├── diagrams/
-│
-├── app.py
-├── build_vectorstore.py
-├── requirements.txt
-├── README.md
-└── .env.example
-```
-
----
-
-# 🔄 RAG Workflow
-
-```
-PDF Documents
-      │
-      ▼
-Text Chunking
-      │
-      ▼
-Embeddings
-      │
-      ▼
-FAISS Vector Database
-      │
-      ▼
-Retriever
-      │
-      ▼
-Large Language Model
-      │
-      ▼
-Answer
-```
-
----
-
-# 🤖 LangGraph Workflow
-
-```
-User Query
-      │
-      ▼
-Supervisor
-      │
-      ▼
-RAG Agent
-      │
-      ▼
-Planner Agent
-      │
-      ▼
-Booking Agent
-      │
-      ▼
-Budget Agent
-      │
-      ▼
-Final AI Response
-```
-
----
-
-# 🏗️ Building the Vector Database
-
-Create the FAISS vector database using:
-
-```bash
-python build_vectorstore.py
-```
-
-This command:
-
-- Loads tourism PDF documents
-- Splits documents into chunks
-- Creates embeddings
-- Builds the FAISS vector database
-
----
-
-# 🚀 Installation
+# 🚀 Setup Instructions
 
 ## 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/SriLanka-Tourism-Microbusiness-Assistant.git
+git clone https://github.com/dinusha014/SriLanka-Tourism-Microbusiness-Assistant
 ```
 
-## 2. Install dependencies
+## 2. Move into the project
+
+```bash
+cd SriLanka-Tourism-Microbusiness-Assistant
+```
+
+## 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 3. Configure environment variables
+## 4. Configure environment variables
 
-Create a `.env` file based on `.env.example`.
+Create a `.env` file and add:
 
-## 4. Build the vector database
+```env
+GROQ_API_KEY=your_groq_api_key
+OPENROUTER_API_KEY=your_openrouter_api_key
+```
+
+## 5. Build the vector database
 
 ```bash
 python build_vectorstore.py
 ```
 
-## 5. Run the application
+## 6. Run the application
 
 ```bash
 streamlit run app.py
@@ -187,82 +73,85 @@ streamlit run app.py
 
 ---
 
-# 🧩 AI Models
+# 📊 Model Choice Comparison
 
-- Groq
-- OpenRouter
-
----
-
-# 🖼️ Diagrams
-
-## System Architecture
-
-![System Architecture](diagrams/architecture.png)
+| Model / Tool | Purpose | Reason for Selection |
+|---------------|---------|----------------------|
+| Groq | Tourism question answering | Fast inference and high-quality responses |
+| OpenRouter | Planner, Booking and Budget agents | Provides access to multiple LLMs through one API |
+| HuggingFace Embeddings | Text embeddings | Converts tourism documents into vector representations |
+| FAISS | Vector database | Fast semantic similarity search for RAG |
 
 ---
 
-## Agent Workflow
+# 🤝 Agent Communication Diagram
 
-![Agent Workflow](diagrams/agent_workflow.png)
+![Agent Communication](diagrams/agent_workflow.png)
 
----
+### Agent Communication Flow
 
-## RAG Workflow
+```
+User
+   │
+   ▼
+Streamlit UI
+   │
+   ▼
+LangGraph Supervisor
+   │
+   ├──────────────┐
+   ▼              ▼
+RAG Agent    Planner Agent
+                    │
+                    ▼
+            Booking Agent
+                    │
+                    ▼
+             Budget Agent
+                    │
+                    ▼
+            Final AI Response
+```
 
-![RAG Workflow](diagrams/rag_workflow.png)
-
----
-
-# 🎨 Project Branding
-
-The application includes custom tourism branding assets to create an engaging user experience.
-
-### Branding Assets
-
-- 🇱🇰 Application Logo
-- 🌅 Hero Banner
-- 🏛️ Sigiriya
-- 🌿 Ella
-- 🐋 Mirissa
-- 🐘 Yala National Park
-
-These images enhance the application's tourism-focused interface.
-
----
-
-# 📈 Future Improvements
-
-- 🌤️ Weather Forecast Integration
-- 🗺️ Google Maps Integration
-- ✈️ Flight Booking APIs
-- 🏨 Live Hotel Booking APIs
-- 🎤 Voice Assistant
-- 🌐 Sinhala & Tamil Language Support
-- 📱 Mobile Responsive Improvements
+The LangGraph Supervisor analyses the user query and routes it to the appropriate specialised agent. The selected agents process the request and their responses are combined before being returned to the user.
 
 ---
 
-# 👨‍💻 Author
+# 📚 RAG Pipeline Explanation
 
-**Chamod Dinusha**
+![RAG Pipeline](diagrams/rag_workflow.png)
 
-BSc (Hons) Information Technology
+The application follows a Retrieval-Augmented Generation (RAG) pipeline:
 
-Horizon Campus
+1. Tourism PDF documents are collected.
+2. Documents are divided into smaller text chunks.
+3. HuggingFace Embeddings convert the text into vectors.
+4. FAISS stores the vector embeddings.
+5. The retriever searches for the most relevant document chunks.
+6. The retrieved context is sent to the Large Language Model.
+7. The model generates a response using only the retrieved tourism information.
 
----
-
-# 🤝 Contributors
-
-- Chamod Dinusha
-
----
-
-# 📄 License
-
-This project was developed for **academic purposes** as part of a university assignment.
+This approach improves response accuracy and reduces hallucinations by grounding answers in the project's tourism knowledge base.
 
 ---
 
-## ⭐ If you found this project useful, consider giving it a star!
+# 🌐 Live Streamlit Demo
+
+**Live Application**
+
+https://srilanka-tourism-microbusiness-assistant-jlkskudoaws2g46u9f948.streamlit.app/
+
+**GitHub Repository**
+
+https://github.com/dinusha014/SriLanka-Tourism-Microbusiness-Assistant
+
+---
+
+# ⚠️ Known Limitations
+
+- Supports only tourism-related queries.
+- Responses depend on the available tourism documents.
+- No real-time hotel or flight booking integration.
+- Weather information is not available.
+- Internet connection is required for LLM APIs.
+- Budget estimates are approximate and may differ from actual travel costs.
