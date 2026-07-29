@@ -50,7 +50,7 @@ with st.sidebar:
 
     st.image("images/logo.jpeg", width=150)
 
-    st.title("🇱🇰 Sri Lanka Tourism AI")
+    st.title("Sri Lanka Tourism AI")
 
     st.success("🌴 Welcome to Sri Lanka Tourism AI!")
 
@@ -135,7 +135,7 @@ st.image(
     use_container_width=True
 )
 
-st.title("🇱🇰 Sri Lanka Tourism Micro-Business Assistant")
+st.title(" Sri Lanka Tourism Micro-Business Assistant")
 
 st.caption(
     "Plan your perfect Sri Lanka holiday using AI-powered travel planning."
@@ -274,5 +274,5 @@ if prompt:
 st.markdown("---")
 
 st.caption(
-    "🇱🇰 Sri Lanka Tourism Micro-Business Assistant | Powered by LangGraph • FAISS • Groq • OpenRouter • Streamlit"
+    " Sri Lanka Tourism Micro-Business Assistant | Powered by LangGraph • FAISS • Groq • OpenRouter • Streamlit"
 )
