@@ -1,4 +1,4 @@
-# 🇱🇰 Sri Lanka Tourism Micro-Business Assistant
+# Sri Lanka Tourism Micro-Business Assistant
 
 ## 📖 Project Description
 
@@ -8,7 +8,7 @@ The application retrieves relevant information from a FAISS vector database crea
 
 ---
 
-# 🏗️ Architecture Diagram
+#  Architecture Diagram
 
 ![System Architecture](diagrams/architecture.png)
 
@@ -30,7 +30,7 @@ The Streamlit application receives user requests, the LangGraph supervisor route
 
 ---
 
-# 🚀 Setup Instructions
+#  Setup Instructions
 
 ## 1. Clone the repository
 
@@ -73,7 +73,7 @@ streamlit run app.py
 
 ---
 
-# 📊 Model Choice Comparison
+#  Model Choice Comparison
 
 | Model / Tool | Purpose | Reason for Selection |
 |---------------|---------|----------------------|
@@ -84,7 +84,7 @@ streamlit run app.py
 
 ---
 
-# 🤝 Agent Communication Diagram
+#  Agent Communication Diagram
 
 ![Agent Communication](diagrams/agent_workflow.png)
 
@@ -117,7 +117,7 @@ The LangGraph Supervisor analyses the user query and routes it to the appropriat
 
 ---
 
-# 📚 RAG Pipeline Explanation
+#  RAG Pipeline Explanation
 
 ![RAG Pipeline](diagrams/rag_workflow.png)
 
